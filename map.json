@@ -1,0 +1,257 @@
+{
+    "map":{
+        "green":[
+            "Altrincham",
+            "Navigation Road",
+            "Timperley",
+            "Brooklands",
+            "Sale",
+            "Dane Road",
+            "Stretford",
+            "Old Trafford",
+            "Trafford Bar",
+            "Cornbrook",
+            "Deansgate - Castlefield",
+            "St Peter's Square",
+            "Market Street",
+            "Shudehill",
+            "Victoria",
+            "Queens Road",
+            "Abraham Moss",
+            "Crumpsall",
+            "Bowker Vale",
+            "Heaton Park",
+            "Prestwich",
+            "Besses O\u2019 Th\u2019 Barn",
+            "Whitefield",
+            "Radcliffe",
+            "Bury"
+        ],
+        "purple":[
+            "Altrincham",
+            "Navigation Road",
+            "Timperley",
+            "Brooklands",
+            "Sale",
+            "Dane Road",
+            "Stretford",
+            "Old Trafford",
+            "Trafford Bar",
+            "Cornbrook",
+            "Deansgate - Castlefield",
+            "St Peter's Square",
+            "Piccadilly Gardens",
+            "Piccadilly"
+        ],
+        "lightblue":[
+            "Ashton-Under-Lyne",
+            "Ashton West",
+            "Ashton Moss",
+            "Audenshaw",
+            "Droylsden",
+            "Cemetery Road",
+            "Edge Lane",
+            "Clayton Hall",
+            "Velopark",
+            "Etihad Campus",
+            "Holt Town",
+            "New Islington",
+            "Piccadilly",
+            "Piccadilly Gardens",
+            "St Peter's Square",
+            "Deansgate - Castlefield",
+            "Cornbrook",
+            "Pomona",
+            "Exchange Quay",
+            "Salford Quays",
+            "Anchorage",
+            "Harbour City",
+            "MediaCityUK",
+            "Broadway",
+            "Langworthy",
+            "Weaste",
+            "Ladywell",
+            "Eccles"
+        ],
+        "orange":[
+            "Etihad Campus",
+            "Holt Town",
+            "New Islington",
+            "Piccadilly",
+            "Piccadilly Gardens",
+            "St Peter's Square",
+            "Deansgate - Castlefield",
+            "Cornbrook",
+            "Pomona",
+            "Exchange Quay",
+            "Salford Quays",
+            "Anchorage",
+            "Harbour City",
+            "MediaCityUK"
+        ],
+        "yellow":[
+            "Bury",
+            "Radcliffe",
+            "Whitefield",
+            "Besses O\u2019 Th\u2019 Barn",
+            "Prestwich",
+            "Heaton Park",
+            "Bowker Vale",
+            "Crumpsall",
+            "Abraham Moss",
+            "Queens Road",
+            "Victoria",
+            "Shudehill",
+            "Market Street",
+            "Piccadilly Gardens",
+            "Piccadilly"
+        ],
+        "pink":[
+            "East Didsbury",
+            "Didsbury Village",
+            "West Didsbury",
+            "Burton Road",
+            "Withington",
+            "St Werburgh\u2019s Road",
+            "Chorlton",
+            "Firswood",
+            "Trafford Bar",
+            "Cornbrook",
+            "Deansgate - Castlefield",
+            "St Peter's Square",
+            "Exchange Square",
+            "Victoria",
+            "Monsall",
+            "Central Park",
+            "Newton Heath and Moston",
+            "Failsworth",
+            "Hollinwood",
+            "South Chadderton",
+            "Freehold",
+            "Westwood",
+            "Oldham King Street",
+            "Oldham Central",
+            "Oldham Mumps",
+            "Derker",
+            "Shaw and Crompton",
+            "Newhey",
+            "Milnrow",
+            "Kingsway Business Park",
+            "Newbold",
+            "Rochdale Railway Station",
+            "Rochdale Town Centre"
+        ],
+        "brown":[
+            "East Didsbury",
+            "Didsbury Village",
+            "West Didsbury",
+            "Burton Road",
+            "Withington",
+            "St Werburgh\u2019s Road",
+            "Chorlton",
+            "Firswood",
+            "Trafford Bar",
+            "Cornbrook",
+            "Deansgate - Castlefield",
+            "St Peter's Square",
+            "Exchange Square",
+            "Victoria",
+            "Monsall",
+            "Central Park",
+            "Newton Heath and Moston",
+            "Failsworth",
+            "Hollinwood",
+            "South Chadderton",
+            "Freehold",
+            "Westwood",
+            "Oldham King Street",
+            "Oldham Central",
+            "Oldham Mumps",
+            "Derker",
+            "Shaw and Crompton"
+        ],
+        "red":[
+            "The Trafford Centre",
+            "Barton Dock Road",
+            "Parkway",
+            "Village",
+            "Imperial War Museum",
+            "Wharfside",
+            "Pomona",
+            "Cornbrook",
+            "Deansgate - Castlefield"
+        ],
+        "darkblue":[
+            "Manchester Airport",
+            "Shadowmoss",
+            "Peel Hall",
+            "Robinswood Road",
+            "Wythenshawe Town Centre",
+            "Crossacres",
+            "Benchill",
+            "Martinscroft",
+            "Roundthorn",
+            "Baguley",
+            "Moor Road",
+            "Wythenshawe Park",
+            "Northern Moor",
+            "Sale Water Park",
+            "Barlow Moor Road",
+            "St Werburgh\u2019s Road",
+            "Chorlton",
+            "Firswood",
+            "Trafford Bar",
+            "Cornbrook",
+            "Deansgate - Castlefield",
+            "St Peter's Square",
+            "Market Street",
+            "Shudehill",
+            "Victoria"
+        ]
+    },
+    "ends":{
+        "Altrincham":[
+            "green",
+            "purple"
+        ],
+        "Bury":[
+            "green",
+            "yellow"
+        ],
+        "Piccadilly":[
+            "purple",
+            "yellow"
+        ],
+        "Ashton-Under-Lyne":[
+            "lightblue"
+        ],
+        "Eccles":[
+            "lightblue"
+        ],
+        "East Didsbury":[
+            "pink",
+            "brown"
+        ],
+        "Rochdale Town Centre":[
+            "pink"
+        ],
+        "Shaw and Crompton":[
+            "brown"
+        ],
+        "The Trafford Centre":[
+            "red"
+        ],
+        "Cornbrook":[
+            "red"
+        ],
+        "Deansgate - Castlefield":[
+            "red"
+        ],
+        "Manchester Airport":[
+            "darkblue"
+        ],
+        "Victoria":[
+            "darkblue"
+        ]
+    }
+}
