@@ -10,6 +10,7 @@ const shortTrainTimeout = 180000;
 /*const timeZone = new Date().getTimezoneOffset() / -60;*/
 const timeZone = 0;
 var currentTrains = [];
+var currentNotices = [];
 var killable = false;
 
 /*
@@ -102,7 +103,12 @@ function updateBoard(lastBoards) {
         res.on('data', (chunk) => { rawData += chunk; });
         res.on('end', () => {
             const tramData = JSON.parse(rawData).value;
+            let tempNotices = [];
             tramData.forEach(board => {
+                if (!(tempNotices.includes(board.MessageBoard)) && !board.MessageBoard.includes("^F0Next Altrincham Departures:^F0")) {
+                    tempNotices.push(board.MessageBoard);
+                }
+
                 let currentBoard = board.Id;
                 for (let j = 0; j < 4; j++) {
                     if (board['Status'+j] == "Departing" && lastBoards.find(oldBoard => oldBoard.Id == board.Id)['Status'+j] != "Departing") {
@@ -198,6 +204,8 @@ function updateBoard(lastBoards) {
                 }
             })
 
+            currentNotices = tempNotices.slice(0);
+
             setTimeout(updateBoard.bind(null,tramData),5000);
             // setTimeout(updateBoard.bind(null,tramData),5000 - console.timeEnd('request'));
         })
@@ -227,6 +235,10 @@ app.get('/active', function (req, res) {
 
 app.get('/map', function (req, res) {
     res.send(map);
+});
+
+app.get('/notice', function (req, res) {
+    res.send(currentNotices);
 });
 
 app.listen(port, function () {
