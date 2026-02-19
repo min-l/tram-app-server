@@ -105,6 +105,7 @@ function updateBoard(lastBoards) {
         res.on('data', (chunk) => { rawData += chunk; });
         res.on('end', () => {
             const tramData = JSON.parse(rawData).value;
+            //console.log(tramData);
             let tempNotices = [];
             let tempStations = {};
             tramData.forEach(board => {
@@ -113,7 +114,7 @@ function updateBoard(lastBoards) {
                 }
                 let stationLocation = normaliseNames(board.StationLocation);
                 if (!(stationLocation in tempStations)) {
-                    tempStations[stationLocation] = {"Incoming":[],"Outgoing":[]};
+                    tempStations[stationLocation] = {"Incoming":[],"Outgoing":[],"Incoming/Outgoing":[],"Other":[]};
                 }
                 for (let i = 0; i < 4; i++) {
                     if (board["Dest" + i] != "") {
@@ -123,7 +124,11 @@ function updateBoard(lastBoards) {
                             "Status": board["Status" + i],
                             "Wait": board["Wait" + i]
                         }
-                        tempStations[stationLocation][board.Direction].push(upcoming);
+                        try {
+                            tempStations[stationLocation][board.Direction].push(upcoming);
+                        } catch {
+                            tempStations[stationLocation]["Other"].push(upcoming);
+                        }
                     }
                 }
 
