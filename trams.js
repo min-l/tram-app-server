@@ -31,7 +31,8 @@ const edging = [
     ['Eccles via MediaCityUK','Eccles'],
     ['Deansgate Castlefield','Deansgate - Castlefield'],
     ['Ashton-under-Lyne','Ashton-Under-Lyne'],
-    ['Weaste via MediaCityUK','Weaste']
+    ['Weaste via MediaCityUK','Weaste'],
+    ['Trafford Palazzo','Barton Dock Road']
 ];
 
 function normaliseNames(name) {
@@ -110,9 +111,9 @@ function updateBoard(lastBoards) {
                 if (!(tempNotices.includes(board.MessageBoard)) && !board.MessageBoard.includes("^F0Next Altrincham Departures:^F0")) {
                     tempNotices.push(board.MessageBoard);
                 }
-
-                if (!(board.StationLocation in tempStations)) {
-                    tempStations[board.StationLocation] = {"Incoming":[],"Outgoing":[]};
+                let stationLocation = normaliseNames(board.StationLocation);
+                if (!(stationLocation in tempStations)) {
+                    tempStations[stationLocation] = {"Incoming":[],"Outgoing":[]};
                 }
                 for (let i = 0; i < 4; i++) {
                     if (board["Dest" + i] != "") {
@@ -122,7 +123,7 @@ function updateBoard(lastBoards) {
                             "Status": board["Status" + i],
                             "Wait": board["Wait" + i]
                         }
-                        tempStations[board.StationLocation][board.Direction].push(upcoming);
+                        tempStations[stationLocation][board.Direction].push(upcoming);
                     }
                 }
 
@@ -130,7 +131,7 @@ function updateBoard(lastBoards) {
                 for (let j = 0; j < 4; j++) {
                     if (board['Status'+j] == "Departing" && lastBoards.find(oldBoard => oldBoard.Id == board.Id)['Status'+j] != "Departing") {
                         let train = {
-                            departed: board['StationLocation'],
+                            departed: stationLocation,
                             predictNext: '',
                             destination: normaliseNames(board['Dest' + j]),
                             route: '',
