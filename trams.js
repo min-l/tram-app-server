@@ -11,6 +11,7 @@ const shortTrainTimeout = 180000;
 const timeZone = 0;
 var currentTrains = [];
 var currentNotices = [];
+var currentStations = {};
 var killable = false;
 
 /*
@@ -104,9 +105,25 @@ function updateBoard(lastBoards) {
         res.on('end', () => {
             const tramData = JSON.parse(rawData).value;
             let tempNotices = [];
+            let tempStations = {};
             tramData.forEach(board => {
                 if (!(tempNotices.includes(board.MessageBoard)) && !board.MessageBoard.includes("^F0Next Altrincham Departures:^F0")) {
                     tempNotices.push(board.MessageBoard);
+                }
+
+                if (!(board.StationLocation in tempStations)) {
+                    tempStations[board.StationLocation] = {"Incoming":[],"Outgoing":[]};
+                }
+                for (let i = 0; i < 4; i++) {
+                    if (board["Dest" + i] != "") {
+                        let upcoming = {
+                            "Dest": board["Dest" + i],
+                            "Carriages": board["Carriages" + i],
+                            "Status": board["Status" + i],
+                            "Wait": board["Wait" + i]
+                        }
+                        tempStations[board.StationLocation][board.Direction].push(upcoming);
+                    }
                 }
 
                 let currentBoard = board.Id;
@@ -205,6 +222,7 @@ function updateBoard(lastBoards) {
             })
 
             currentNotices = tempNotices.slice(0);
+            currentStations = structuredClone(tempStations);
 
             setTimeout(updateBoard.bind(null,tramData),5000);
             // setTimeout(updateBoard.bind(null,tramData),5000 - console.timeEnd('request'));
@@ -239,6 +257,16 @@ app.get('/map', function (req, res) {
 
 app.get('/notice', function (req, res) {
     res.send(currentNotices);
+});
+
+app.get('/stations/:station', function (req, res) {
+    let station = req.params.station;
+    station = station.replaceAll("_"," ");
+    if (station in currentStations) {
+        res.send(currentStations[station]);
+    } else {
+        res.status(404).send('No station by that name');
+    }
 });
 
 app.listen(port, function () {
